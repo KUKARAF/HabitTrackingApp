@@ -1,0 +1,35 @@
+<h1>Edit activities</h1>
+ 
+<%= form_with(model: @activities, local: true) do |form| %>
+ 
+  <% if @activities.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@activities.errors.count, "error") %> prohibited
+        this activities from being saved:
+      </h2>
+      <ul>
+        <% @activities.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', activitiess_path %>

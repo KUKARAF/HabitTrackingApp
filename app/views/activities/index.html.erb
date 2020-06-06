@@ -1,0 +1,27 @@
+<h1 class="text-center">Activities#index</h1>
+<p>Find me in app/views/activities/index.html.erb</p>
+<div class="row">
+
+
+<% @activities.each do |a|%>
+	<div class="col-sm-3">
+	<% a.myName%>
+	<div class="card  m-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= a.myName%></h6>
+	<h6 class="card-subtitle mb-2 text-muted"><%= a.created_at %> </h6>
+	<a href="#" class="card-link">Edit</a>
+
+	<td><%= link_to 'Delete', activity_path(a.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
+	<div class="timeDate"></div>
+	<div class="name"></div>
+	<div class="activId"><%= a.id %></div>
+	<div class="activId"><%= a.userId %></div>
+	<br>
+	</div>
+	</div>	
+	</div>
+
+	<% end %>
+</div>	
